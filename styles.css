@@ -1,79 +1,227 @@
-/* Basic Reset & Fonts */
+/* ==========================================================================
+   CSS Variables - Global definitions
+   ========================================================================== */
+:root {
+  /* Colors (Based on your provided CSS) */
+  --color-background: #121212;
+  --color-surface-header: rgba(25, 25, 25, 0.9);
+  --color-surface-about: rgba(35, 35, 35, 0.8);
+  --color-surface-artist-card: rgba(45, 45, 45, 0.9);
+  --color-surface-contact: rgba(35, 35, 35, 0.8);
+  --color-surface-footer: rgba(25, 25, 25, 0.9);
+  --color-text-primary: #eee;
+  --color-text-secondary: #bbb; /* Nav links, artist card p */
+  --color-text-footer: #999;
+  --color-text-headings: #fff; /* Hero H1, Artist Card H3 */
+  --color-text-hero-p: #eee;
+  --color-text-join-p: #eee;
+  --color-text-contact-p: #ccc;
+  --color-accent-primary: #9c27b0; /* Logo title, About/Artists H2, Contact H2, Join gradient, Social hover */
+  --color-accent-secondary: #03a9f4; /* Nav hover gradient, Contact/Footer links */
+  --color-accent-tertiary: #f441a5; /* Nav hover gradient, Contact/Footer link hover */
+  --color-accent-quaternary: #ffeb3b; /* Nav hover gradient */
+  --color-gradient-cta: linear-gradient(90deg, var(--color-accent-secondary), var(--color-accent-tertiary));
+  --color-gradient-join-bg: linear-gradient(135deg, var(--color-accent-primary), #673ab7); /* Added missing second color */
+  --color-nav-border-gradient: linear-gradient(90deg, var(--color-accent-secondary), var(--color-accent-tertiary), var(--color-accent-quaternary), var(--color-accent-secondary));
+  --color-shadow-header: rgba(0, 0, 0, 0.5);
+  --color-shadow-logo: rgba(0, 0, 0, 0.6);
+  --color-shadow-hero-text: rgba(0, 0, 0, 0.8);
+  --color-shadow-cta: rgba(0, 0, 0, 0.5);
+  --color-shadow-cta-hover: rgba(0, 0, 0, 0.6);
+  --color-shadow-about: rgba(0, 0, 0, 0.5);
+  --color-shadow-artist-card: rgba(0, 0, 0, 0.4);
+  --color-shadow-artist-card-hover: rgba(0, 0, 0, 0.5);
+  --color-shadow-join: rgba(0, 0, 0, 0.5);
+  --color-shadow-contact: rgba(0, 0, 0, 0.5);
+  --color-social-icon: #777;
+  --color-hamburger-bg: var(--color-text-primary);
+  --color-mobile-nav-bg: #1a1a1a; /* From previous CSS */
+
+  /* Catalog Specific Colors (Merged from previous step) */
+  --color-catalog-border: #444;
+  --color-catalog-details-bg: rgba(255, 255, 255, 0.04);
+  --color-catalog-details-bg-hover: rgba(255, 255, 255, 0.08);
+  --color-catalog-text-muted: #ccc;
+  --color-catalog-arrow: var(--color-catalog-text-muted);
+  --color-catalog-artist-h3: var(--color-accent-secondary);
+  --color-catalog-artist-border: var(--color-accent-secondary);
+
+  /* Fonts (Ensure these are loaded in HTML) */
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Montserrat', sans-serif;
+
+  /* Font Sizes */
+  --fs-base-root: 100%;
+  --fs-logo: 2.2rem;
+  --fs-logo-tablet: 1.8rem;
+  --fs-logo-mobile: 1.5rem;
+  --fs-hero-h1: 3.5rem;
+  --fs-hero-h1-tablet: 2.2rem;
+  --fs-hero-h1-mobile: 2rem;
+  --fs-hero-p: 1.3rem;
+  --fs-about-h2: 2.5rem;
+  --fs-about-p: 1.1rem;
+  --fs-artists-h2: 2.5rem;
+  --fs-artist-card-h3: 1.3rem;
+  --fs-artist-card-p: 1rem;
+  --fs-join-h2: 2rem;
+  --fs-join-p: 1.1rem;
+  --fs-contact-h2: 2rem;
+  --fs-social-icon: 1.5rem;
+  --fs-footer: 0.9rem;
+
+  /* Spacing */
+  --space-xxs: 0.25rem;  /* 4px */
+  --space-xs: 0.5rem;    /* 8px */
+  --space-sm: 0.75rem;   /* 12px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-xxl: 2.5rem;   /* 40px */
+  --space-xxxl: 3rem;    /* 48px */
+  --space-xxxxl: 4rem;   /* 64px */
+  --layout-padding-h: var(--space-xl);
+  --layout-padding-h-tablet: var(--space-md);
+  --header-padding-v: var(--space-lg);
+  --header-padding-v-tablet: var(--space-md);
+  --hero-padding-v: 6rem; /* Keep specific large value */
+  --hero-padding-v-mobile: var(--space-xxxxl);
+  --about-padding: var(--space-xxxxl);
+  --about-padding-tablet: var(--space-xl);
+  --section-margin-bottom: var(--space-xxxxl);
+  --section-margin-bottom-tablet: var(--space-xl);
+  --artists-h2-margin-bottom: var(--space-xxxl);
+  --nav-gap: var(--space-xl);
+  --nav-gap-tablet: var(--space-md);
+  --nav-gap-mobile: var(--space-xs);
+  --artist-grid-gap: var(--space-xl);
+  --artist-card-padding: var(--space-lg);
+  --join-padding-v: var(--space-xxxxl);
+  --store-icon-gap: var(--space-xl);
+  --contact-padding-v: var(--space-xxxxl);
+  --social-icon-margin-h: var(--space-sm);
+  --footer-padding-v: var(--space-xl);
+
+  /* Other */
+  --transition-speed: 0.3s;
+  --transition-speed-nav-border: 0.4s;
+  --border-radius-small: 3px;
+  --border-radius-medium: 5px;
+  --border-radius-large: 15px; /* About, Artist Card */
+  --border-radius-round: 50px; /* CTA Button */
+  --border-radius-join-btn: 30px; /* Specific for join button */
+  --artist-card-img-height: 250px;
+  --store-icon-width: 160px;
+  --mobile-nav-width: 250px; /* From previous CSS */
+  --header-height: auto; /* Can be set to a fixed value if needed */
+}
+
+/* ==========================================================================
+   Basic Reset & Base Styles
+   ========================================================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  font-family: 'Poppins', sans-serif; /* Modern, slightly rounded sans-serif */
-  line-height: 1.6;
-  background-color: #121212; /* Dark background */
-  color: #eee; /* Light text for contrast */
+
+html {
+  font-size: var(--fs-base-root);
+  scroll-behavior: smooth;
 }
 
-/* Overall Layout */
-header, nav, main, section, footer {
-  width: 100%;
-  padding: 0 2rem; /* Keep horizontal padding */
+body {
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  overflow-x: hidden;
 }
+
+/* ==========================================================================
+   Overall Layout
+   ========================================================================== */
+header, nav, main, section, footer {
+  /* width: 100%; Redundant */
+  padding-left: var(--layout-padding-h);
+  padding-right: var(--layout-padding-h);
+}
+
+/* Add specific padding for main content area if needed, or use section padding */
+main.page-container {
+    padding-top: var(--space-xl); /* Example top padding */
+    padding-bottom: var(--space-xl); /* Example bottom padding */
+    max-width: 1100px; /* Set max-width for these pages */
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Remove default padding from sections within the container if main has padding */
+main.page-container section {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem 2rem; /* Consistent padding */
-  background-color: rgba(25, 25, 25, 0.9); /* Slightly lighter dark, with transparency */
+  padding-top: var(--header-padding-v);
+  padding-bottom: var(--header-padding-v);
+  background-color: var(--color-surface-header);
   backdrop-filter: blur(10px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Darker shadow */
+  box-shadow: 0 4px 8px var(--color-shadow-header);
   position: sticky;
   top: 0;
   z-index: 100;
+  min-height: var(--header-height);
 }
 
-/* Logo --- MODIFIED FOR LINK */
-.logo {
-  /* Container for alignment */
-}
-.logo a { /* Anchor wrapping the logo elements */
+/* ==========================================================================
+   Logo
+   ========================================================================== */
+.logo a {
   display: flex;
   align-items: center;
-  text-decoration: none; /* Remove default link underline */
-  color: inherit; /* Keep link text color consistent with body */
+  text-decoration: none;
+  color: inherit;
 }
-.logo a img { /* Target image inside the link */
+.logo a img {
   height: 70px;
-  margin-right: 1rem;
-  transition: transform 0.3s ease;
+  margin-right: var(--space-md);
+  transition: transform var(--transition-speed) ease;
 }
-.logo a:hover img { /* Image hover effect */
+.logo a:hover img {
   transform: scale(1.1);
 }
-.logo a .logo-title { /* Title inside the link */
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2.2rem;
-  color: #9c27b0; /* Deep purple */
+.logo a .logo-title {
+  font-family: var(--font-secondary);
+  font-size: var(--fs-logo);
+  color: var(--color-accent-primary);
   font-weight: 700;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  text-shadow: 1px 1px 3px var(--color-shadow-logo);
 }
-/* --- END LOGO MODIFICATION --- */
 
-/* Navigation */
+/* ==========================================================================
+   Navigation (Desktop)
+   ========================================================================== */
 nav ul {
   list-style: none;
   display: flex;
-  gap: 2rem;
-  margin-left: auto; /* Items pushed to the right */
-  flex-wrap: nowrap; /* We'll handle wrapping in media queries */
+  gap: var(--nav-gap);
+  margin-left: auto;
+  flex-wrap: nowrap;
 }
 nav li {
   margin-bottom: 0;
 }
 nav a {
   text-decoration: none;
-  color: #bbb; /* Lighter gray for inactive links */
+  color: var(--color-text-secondary);
   font-weight: 500;
-  transition: all 0.3s ease;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
+  transition: all var(--transition-speed) ease;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--border-radius-medium);
   position: relative;
   overflow: hidden;
 }
@@ -84,48 +232,79 @@ nav a::before {
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background: var(--color-nav-border-gradient);
   background-size: 400%;
-  transition: width 0.4s ease;
+  transition: width var(--transition-speed-nav-border) ease;
   z-index: -1;
   animation: glowing-border 8s linear infinite;
 }
 nav a:hover {
-  color: #fff;
+  color: var(--color-text-headings); /* Use headings color for hover */
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 nav a:hover::before {
   width: 100%;
 }
+/* Active nav link style */
+nav a.active {
+    color: var(--color-text-headings);
+    font-weight: 700;
+}
+nav a.active::before {
+    width: 100%;
+}
 
-/* Keyframes for the animated glowing border */
 @keyframes glowing-border {
   0%   { background-position: 0 0; }
   50%  { background-position: 400% 0; }
   100% { background-position: 0 0; }
 }
 
-/* Hero Section */
+/* ==========================================================================
+   Hamburger Menu Icon
+   ========================================================================== */
+.hamburger {
+ /* margin-left: var(--space-sm); Removed base margin */
+  cursor: pointer;
+  display: none; /* Hidden on desktop */
+  padding: var(--space-xs);
+  z-index: 1001;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: var(--color-hamburger-bg);
+  margin: 5px 0;
+  border-radius: var(--border-radius-small);
+  transition: var(--transition-speed);
+}
+/* Active state (X shape) */
+.hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+
+/* ==========================================================================
+   Hero Section (Index Page Specific)
+   ========================================================================== */
 .hero {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 6rem 2rem;
+  padding: var(--hero-padding-v) var(--layout-padding-h);
   background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba') no-repeat center/cover;
-  color: #fff;
+  color: var(--color-text-headings);
   position: relative;
   overflow: hidden;
-  margin-bottom: 4rem;
+  margin-bottom: var(--section-margin-bottom);
 }
 .hero::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+  inset: 0;
+  background: var(--color-shadow-hero-text);
   z-index: 1;
 }
 .hero > * {
@@ -133,125 +312,133 @@ nav a:hover::before {
   z-index: 2;
 }
 .hero h1 {
-  font-size: 3.5rem;
-  font-family: 'Montserrat', sans-serif;
-  margin-bottom: 1.5rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  font-size: var(--fs-hero-h1);
+  font-family: var(--font-secondary);
+  margin-bottom: var(--space-lg);
+  text-shadow: 2px 2px 4px var(--color-shadow-hero-text);
   line-height: 1.2;
-  color: #fff;
+  color: var(--color-text-headings);
 }
 .hero p {
-  font-size: 1.3rem;
+  font-size: var(--fs-hero-p);
   max-width: 800px;
-  margin-bottom: 2.5rem;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-  color: #eee;
+  margin-bottom: var(--space-xxl);
+  text-shadow: 1px 1px 3px var(--color-shadow-hero-text);
+  color: var(--color-text-hero-p);
 }
 .hero .cta-btn {
   display: inline-block;
-  background: linear-gradient(90deg, #03a9f4, #f441a5);
-  color: #fff;
-  padding: 1rem 2rem;
-  border-radius: 50px;
+  background: var(--color-gradient-cta);
+  color: var(--color-text-headings);
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--border-radius-round);
   text-decoration: none;
   font-weight: bold;
-  transition: all 0.3s ease;
+  transition: all var(--transition-speed) ease;
   border: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 8px var(--color-shadow-cta);
   cursor: pointer;
 }
 .hero .cta-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 6px 12px var(--color-shadow-cta-hover);
   filter: brightness(1.1);
 }
 
-/* About Section */
+/* ==========================================================================
+   About Section (Index Page Specific)
+   ========================================================================== */
 .about {
-  background-color: rgba(35, 35, 35, 0.8);
+  background-color: var(--color-surface-about);
   backdrop-filter: blur(5px);
-  padding: 4rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  padding: var(--about-padding);
+  border-radius: var(--border-radius-large);
+  box-shadow: 0 4px 10px var(--color-shadow-about);
   max-width: 1200px;
-  margin: 0 auto;
-  margin-bottom: 4rem;
+  margin: 0 auto var(--section-margin-bottom);
 }
 .about h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  color: #9c27b0;
+  font-family: var(--font-secondary);
+  font-size: var(--fs-about-h2);
+  margin-bottom: var(--space-lg);
+  color: var(--color-accent-primary);
 }
 .about p {
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
+  margin-bottom: var(--space-lg);
+  font-size: var(--fs-about-p);
+  color: var(--color-text-primary);
+}
+.about p:last-of-type {
+  margin-bottom: 0;
 }
 
-/* Artists Section */
+/* ==========================================================================
+   Artists Section (Index Page Specific)
+   ========================================================================== */
 .artists {
-  margin: 4rem auto;
   max-width: 1200px;
-  padding: 0 2rem;
+  margin: var(--section-margin-bottom) auto;
+  padding: 0 var(--layout-padding-h);
 }
 .artists h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
+  font-family: var(--font-secondary);
+  font-size: var(--fs-artists-h2);
+  margin-bottom: var(--artists-h2-margin-bottom);
   text-align: center;
-  color: #9c27b0;
+  color: var(--color-accent-primary);
 }
 .artist-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
+  gap: var(--artist-grid-gap);
 }
 .artist-card {
-  background-color: rgba(45, 45, 45, 0.9);
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  background-color: var(--color-surface-artist-card);
+  border-radius: var(--border-radius-large);
+  box-shadow: 0 4px 8px var(--color-shadow-artist-card);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 .artist-card:hover {
   transform: scale(1.03);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 6px 15px var(--color-shadow-artist-card-hover);
 }
 .artist-card img {
   width: 100%;
-  height: 250px; /* Fixed height for uniformity */
+  height: var(--artist-card-img-height);
   object-fit: cover;
+  display: block;
 }
 .artist-card .artist-info {
-  padding: 1.5rem;
+  padding: var(--artist-card-padding);
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 .artist-card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.7rem;
-  font-family: 'Montserrat', sans-serif;
-  color: #fff;
+  font-size: var(--fs-artist-card-h3);
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-secondary);
+  color: var(--color-text-headings);
 }
 .artist-card p {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  color: #ccc;
+  font-size: var(--fs-artist-card-p);
+  margin-bottom: var(--space-md);
+  color: var(--color-text-secondary);
   flex-grow: 1;
 }
-.artist-card a {
+.artist-card a { /* Link styled as button */
   display: inline-block;
   text-decoration: none;
-  color: #fff;
-  background: linear-gradient(90deg, #03a9f4, #f441a5);
+  color: var(--color-text-headings);
+  background: var(--color-gradient-cta);
   font-weight: 600;
   margin-top: auto;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  transition: background-color 0.3s ease, filter 0.3s ease;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--border-radius-round);
+  transition: filter var(--transition-speed) ease;
   align-self: flex-start;
 }
 .artist-card a:hover {
@@ -259,183 +446,357 @@ nav a:hover::before {
   text-decoration: none;
 }
 
-/* Join Section */
+/* ==========================================================================
+   Join Section (Shared via Footer Include)
+   ========================================================================== */
 .join {
-  padding: 4rem 2rem;
+  padding: var(--join-padding-v) var(--layout-padding-h);
   text-align: center;
-  background: linear-gradient(135deg, #9c27b0, #673ab7);
+  background: var(--color-gradient-join-bg);
   border-radius: 0;
   margin-bottom: 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 8px var(--color-shadow-join);
 }
 .join h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  font-family: 'Montserrat', sans-serif;
-  color: #fff;
+  font-size: var(--fs-join-h2);
+  margin-bottom: var(--space-lg);
+  font-family: var(--font-secondary);
+  color: var(--color-text-headings);
 }
 .join p {
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
-  color: #eee;
+  margin-bottom: var(--space-lg);
+  font-size: var(--fs-join-p);
+  color: var(--color-text-join-p);
 }
-/* Store Icons */
+/* Store Icons Styling */
 .store-icons {
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: var(--store-icon-gap);
+  margin-top: var(--space-xl);
+  flex-wrap: wrap;
 }
-.store-icon {
-  width: 160px;
+.store-icons a {
+    display: inline-block;
+    line-height: 0;
+}
+.store-icon { /* Class for the <img> tag */
+  width: var(--store-icon-width);
   height: auto;
+  transition: transform var(--transition-speed) ease;
 }
-.join-btn {
-  display: inline-block;
-  padding: 1rem 2rem;
-  background: #fff;
-  color: #9c27b0;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease, transform 0.3s ease, color 0.3s ease;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-.join-btn:hover {
-  background-color: #f0f0f0;
-  transform: scale(1.05);
-  color: #673ab7;
+.store-icon:hover {
+    transform: scale(1.05);
 }
 
-/* Contact Section */
-#contact {
+/* Join Button - Commented out */
+/*
+.join-btn { ... }
+*/
+
+/* ==========================================================================
+   Contact Section (Index Page Specific)
+   ========================================================================== */
+#contact { /* Using ID selector as in HTML */
   text-align: center;
-  margin-bottom: 0;
-  padding: 4rem 2rem;
-  background-color: rgba(35, 35, 35, 0.8);
+  margin-bottom: 0; /* Adjusted as it's before footer include */
+  padding: var(--contact-padding-v) var(--layout-padding-h);
+  background-color: var(--color-surface-contact);
   border-radius: 0;
-  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 -4px 8px var(--color-shadow-contact);
+  position: relative;
+  z-index: 1;
 }
 #contact h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #9c27b0;
+  font-family: var(--font-secondary);
+  font-size: var(--fs-contact-h2);
+  margin-bottom: var(--space-md);
+  color: var(--color-accent-primary);
 }
 #contact p {
-  margin-bottom: 0.8rem;
-  color: #ccc;
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-contact-p);
 }
-#contact a {
-  color: #03a9f4;
+#contact a:not(.social-icons a) { /* Target text links */
+  color: var(--color-accent-secondary);
   text-decoration: none;
-  transition: 0.3s;
+  transition: color var(--transition-speed);
   font-weight: 600;
 }
-#contact a:hover {
+#contact a:not(.social-icons a):hover {
   text-decoration: underline;
-  color: #f441a5;
+  color: var(--color-accent-tertiary);
 }
 #contact .social-icons {
-  margin-top: 1.5rem;
+  margin-top: var(--space-lg);
 }
-.social-icons a {
+.social-icons a { /* Target social icon links */
   display: inline-block;
-  margin: 0 0.75rem;
-  font-size: 1.5rem;
-  color: #777;
-  transition: color 0.3s ease, transform 0.3s ease;
+  margin: 0 var(--social-icon-margin-h);
+  font-size: var(--fs-social-icon);
+  color: var(--color-social-icon);
+  transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+  text-decoration: none;
 }
 .social-icons a:hover {
-  color: #9c27b0;
+  color: var(--color-accent-primary);
   transform: scale(1.2);
 }
 
-/* Footer */
+/* ==========================================================================
+   Footer (Shared via Footer Include)
+   ========================================================================== */
 footer {
   text-align: center;
-  padding: 2rem 0;
-  background-color: rgba(25, 25, 25, 0.9);
-  color: #999;
-  font-size: 0.9rem;
+  padding: var(--footer-padding-v) 0;
+  background-color: var(--color-surface-footer);
+  color: var(--color-text-footer);
+  font-size: var(--fs-footer);
+  position: relative;
+  z-index: 0;
+}
+footer p {
+    padding-left: var(--layout-padding-h);
+    padding-right: var(--layout-padding-h);
 }
 footer a {
-  color: #03a9f4;
+  color: var(--color-accent-secondary);
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color var(--transition-speed);
   font-weight: 600;
 }
 footer a:hover {
   text-decoration: underline;
-  color: #f441a5;
+  color: var(--color-accent-tertiary);
 }
 
-/* Responsive Design */
+
+/* ==========================================================================
+   Artist Catalog Page Specific Styles
+   ========================================================================== */
+
+main.catalog-main {
+  max-width: 900px;
+  margin: var(--section-margin-bottom) auto;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+  font-family: var(--font-primary);
+  color: var(--color-text-primary);
+}
+main.catalog-main h1 {
+  text-align: center;
+  margin-bottom: var(--space-xxl);
+  font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+  color: var(--color-accent-primary);
+  font-family: var(--font-secondary);
+}
+main.catalog-main details {
+  margin-bottom: 1.75rem; /* Specific value */
+  border: 1px solid var(--color-catalog-border);
+  border-radius: var(--border-radius-large);
+  padding: var(--space-md) 1.25rem; /* Specific value */
+  background: var(--color-catalog-details-bg);
+  transition: background-color var(--transition-speed) ease;
+}
+main.catalog-main details:hover {
+    background: var(--color-catalog-details-bg-hover);
+}
+main.catalog-main summary {
+  font-size: clamp(1.1rem, 1vw + 0.9rem, 1.4rem);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding-left: 1.3rem; /* Specific value */
+  color: var(--color-text-primary);
+}
+main.catalog-main summary::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  top: 0;
+  line-height: inherit;
+  transition: transform var(--transition-speed) ease-in-out;
+  color: var(--color-catalog-arrow);
+}
+main.catalog-main details[open] > summary::before {
+  transform: rotate(90deg);
+}
+main.catalog-main details[open] > summary {
+    margin-bottom: var(--space-md);
+}
+main.catalog-main .artist {
+  margin-left: var(--space-lg);
+  margin-top: var(--space-md);
+  padding-left: var(--space-md);
+  border-left: 2px solid var(--color-catalog-artist-border);
+}
+main.catalog-main details[open] > .artist:first-of-type {
+    margin-top: 0;
+}
+main.catalog-main .artist h3 {
+  font-size: clamp(1rem, 1vw + 0.8rem, 1.25rem);
+  margin-bottom: var(--space-xs);
+  color: var(--color-catalog-artist-h3);
+  font-weight: 500;
+  font-family: var(--font-secondary);
+}
+main.catalog-main .song-list {
+  margin-left: 1.25rem; /* Specific value */
+  list-style: disc;
+  font-size: clamp(0.95rem, 0.9vw + 0.75rem, 1.1rem);
+  color: var(--color-catalog-text-muted);
+  padding-left: var(--space-md);
+}
+main.catalog-main .song-list li {
+    margin-bottom: var(--space-xs);
+}
+
+
+/* ==========================================================================
+   NEW STYLES FOR ForArtists / ForVenues PAGES (Placeholder Section)
+   ========================================================================== */
+
+/* Example: Basic styling for content blocks */
+.content-block {
+    background-color: #1a1a1a; /* Use a variable? var(--color-surface-content-block)? */
+    padding: var(--space-lg);
+    border-radius: var(--border-radius-large);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Use shadow variable? */
+    margin-bottom: var(--space-xxxl); /* Use section margin? */
+}
+
+.content-block h2,
+.content-block h3 { /* Example basic heading styling */
+    font-family: var(--font-secondary);
+    font-size: 1.8rem; /* Use variable? */
+    color: var(--color-text-headings);
+    margin-bottom: var(--space-lg);
+}
+
+.content-block h2 { /* Specific style for H2 in these blocks */
+    border-bottom: 2px solid var(--color-accent-secondary);
+    padding-bottom: var(--space-xs);
+    display: inline-block; /* Keep underline contained */
+}
+
+.content-block p {
+    margin-bottom: var(--space-md);
+}
+.content-block p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Add more specific styles for .page-hero-banner, .benefits-grid, etc. here */
+
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+/* ~~~~~~ Medium Screens / Small Laptops ~~~~~~ */
 @media (max-width: 900px) {
-  /* Wrap the nav items to ensure they remain visible */
+  /* Allow nav items to wrap */
   nav ul {
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: var(--nav-gap-tablet);
+    justify-content: flex-end;
   }
   nav li {
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-xs);
   }
 }
 
+/* ~~~~~~ Tablets / Large Phones ~~~~~~ */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-  .logo a img {
-    height: 50px;
-  }
-  .logo a .logo-title {
-    font-size: 1.8rem;
-  }
+  /* Adjust base text size */
+  html { font-size: 105%; }
+
+  /* Reduce layout padding */
   header, nav, main, section, footer {
-    padding: 0 1rem;
+    padding-left: var(--layout-padding-h-tablet);
+    padding-right: var(--layout-padding-h-tablet);
   }
+  /* Adjust specific container padding */
+   main.page-container {
+     padding-left: var(--layout-padding-h-tablet);
+     padding-right: var(--layout-padding-h-tablet);
+   }
+   main.page-container section {
+     padding-left: 0;
+     padding-right: 0;
+   }
+
   header {
-    padding: 1rem 1rem;
+    padding-top: var(--header-padding-v-tablet);
+    padding-bottom: var(--header-padding-v-tablet);
   }
-  .about, .artists {
-    padding: 2rem 1rem;
-    margin: 0 auto;
-    margin-bottom: 2rem;
+  /* Adjust logo size */
+  .logo a img { height: 50px; }
+  .logo a .logo-title { font-size: var(--fs-logo-tablet); }
+
+  /* Adjust hero text size */
+  .hero h1 { font-size: var(--fs-hero-h1-tablet); }
+
+  /* Adjust section padding */
+  .about { padding: var(--about-padding-tablet); }
+  .artists { padding: 0 var(--layout-padding-h-tablet); }
+  /* Adjust section bottom margins */
+  .hero, .about, .artists { margin-bottom: var(--section-margin-bottom-tablet); }
+  .content-block { margin-bottom: var(--section-margin-bottom-tablet); } /* Adjust content block margin */
+
+
+  /* Adjust artist grid columns */
+  .artist-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+
+  /* --- Hamburger Menu Activation --- */
+  .hamburger {
+    display: block;
+    margin-left: auto;
   }
-  .artist-grid {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+
+  nav ul {
+    position: fixed;
+    top: 0;
+    right: calc(-1 * var(--mobile-nav-width));
+    height: 100vh;
+    width: var(--mobile-nav-width);
+    flex-direction: column;
+    gap: var(--space-lg);
+    padding: var(--space-xxxxl) var(--space-xl) var(--space-xl);
+    padding-top: calc(var(--header-height, 70px) + var(--space-xl));
+    background: var(--color-mobile-nav-bg);
+    transition: right var(--transition-speed) ease;
+    z-index: 1000;
+    justify-content: flex-start;
+    margin-left: 0;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+    flex-wrap: nowrap;
   }
+  nav ul.open { right: 0; }
+
+  nav li { margin-bottom: 0; }
+  nav a { display: block; width: 100%; text-align: center;}
+  nav a::before { display: none; }
+  nav a:hover { background: rgba(255, 255, 255, 0.1); }
 }
 
+/* ~~~~~~ Small Phones ~~~~~~ */
 @media (max-width: 480px) {
-  .hero {
-    padding: 4rem 1rem;
-  }
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .artist-grid {
-    grid-template-columns: 1fr;
-  }
-  .store-icons {
-    flex-direction: column;
-    align-items: center;
-  }
-  .logo a img {
-    height: 40px;
-    margin-right: 0.5rem;
-  }
-  .logo a .logo-title {
-    font-size: 1.5rem;
-  }
-  nav ul {
-    justify-content: center;
-    gap: 0.5rem;
-  }
-  nav a {
-    padding: 0.4rem 0.6rem;
-  }
+  html { font-size: 112%; }
+
+  /* Further reduce logo size */
+  .logo a img { height: 40px; margin-right: var(--space-xs); }
+  .logo a .logo-title { font-size: var(--fs-logo-mobile); }
+
+  /* Adjust Hero */
+  .hero { padding: var(--hero-padding-v-mobile) var(--layout-padding-h-tablet); }
+  .hero h1 { font-size: var(--fs-hero-h1-mobile); }
+
+  /* Single column artist grid */
+  .artist-grid { grid-template-columns: 1fr; }
+
+  /* Stack store icons */
+  .store-icons { flex-direction: column; align-items: center; }
+
 }
