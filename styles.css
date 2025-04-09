@@ -147,6 +147,21 @@ header, nav, main, section, footer {
   padding-right: var(--layout-padding-h);
 }
 
+/* Add specific padding for main content area if needed, or use section padding */
+main.page-container {
+    padding-top: var(--space-xl); /* Example top padding */
+    padding-bottom: var(--space-xl); /* Example bottom padding */
+    max-width: 1100px; /* Set max-width for these pages */
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Remove default padding from sections within the container if main has padding */
+main.page-container section {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
 header {
   display: flex;
   align-items: center;
@@ -271,7 +286,7 @@ nav a.active::before {
 
 
 /* ==========================================================================
-   Hero Section
+   Hero Section (Index Page Specific)
    ========================================================================== */
 .hero {
   display: flex;
@@ -280,7 +295,7 @@ nav a.active::before {
   text-align: center;
   padding: var(--hero-padding-v) var(--layout-padding-h);
   background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba') no-repeat center/cover;
-  color: var(--color-text-headings); /* Default hero text color */
+  color: var(--color-text-headings);
   position: relative;
   overflow: hidden;
   margin-bottom: var(--section-margin-bottom);
@@ -288,8 +303,8 @@ nav a.active::before {
 .hero::before {
   content: '';
   position: absolute;
-  inset: 0; /* Covers whole area */
-  background: var(--color-shadow-hero-text); /* Dark overlay */
+  inset: 0;
+  background: var(--color-shadow-hero-text);
   z-index: 1;
 }
 .hero > * {
@@ -331,7 +346,7 @@ nav a.active::before {
 }
 
 /* ==========================================================================
-   About Section
+   About Section (Index Page Specific)
    ========================================================================== */
 .about {
   background-color: var(--color-surface-about);
@@ -351,19 +366,19 @@ nav a.active::before {
 .about p {
   margin-bottom: var(--space-lg);
   font-size: var(--fs-about-p);
-  color: var(--color-text-primary); /* Ensure default text color */
+  color: var(--color-text-primary);
 }
 .about p:last-of-type {
-  margin-bottom: 0; /* Remove margin from last paragraph */
+  margin-bottom: 0;
 }
 
 /* ==========================================================================
-   Artists Section
+   Artists Section (Index Page Specific)
    ========================================================================== */
 .artists {
   max-width: 1200px;
   margin: var(--section-margin-bottom) auto;
-  padding: 0 var(--layout-padding-h); /* Use layout padding */
+  padding: 0 var(--layout-padding-h);
 }
 .artists h2 {
   font-family: var(--font-secondary);
@@ -394,13 +409,13 @@ nav a.active::before {
   width: 100%;
   height: var(--artist-card-img-height);
   object-fit: cover;
-  display: block; /* Remove potential bottom space */
+  display: block;
 }
 .artist-card .artist-info {
   padding: var(--artist-card-padding);
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* Allow info section to grow */
+  flex-grow: 1;
 }
 .artist-card h3 {
   font-size: var(--fs-artist-card-h3);
@@ -412,7 +427,7 @@ nav a.active::before {
   font-size: var(--fs-artist-card-p);
   margin-bottom: var(--space-md);
   color: var(--color-text-secondary);
-  flex-grow: 1; /* Allow paragraph to take available space */
+  flex-grow: 1;
 }
 .artist-card a { /* Link styled as button */
   display: inline-block;
@@ -420,11 +435,11 @@ nav a.active::before {
   color: var(--color-text-headings);
   background: var(--color-gradient-cta);
   font-weight: 600;
-  margin-top: auto; /* Push to bottom */
+  margin-top: auto;
   padding: var(--space-xs) var(--space-md);
-  border-radius: var(--border-radius-round); /* Use round radius */
+  border-radius: var(--border-radius-round);
   transition: filter var(--transition-speed) ease;
-  align-self: flex-start; /* Align to the start (left) */
+  align-self: flex-start;
 }
 .artist-card a:hover {
   filter: brightness(1.2);
@@ -432,14 +447,14 @@ nav a.active::before {
 }
 
 /* ==========================================================================
-   Join Section
+   Join Section (Shared via Footer Include)
    ========================================================================== */
 .join {
   padding: var(--join-padding-v) var(--layout-padding-h);
   text-align: center;
   background: var(--color-gradient-join-bg);
-  border-radius: 0; /* Full width section */
-  margin-bottom: 0; /* Remove bottom margin if contact follows */
+  border-radius: 0;
+  margin-bottom: 0;
   box-shadow: 0 4px 8px var(--color-shadow-join);
 }
 .join h2 {
@@ -459,11 +474,11 @@ nav a.active::before {
   justify-content: center;
   gap: var(--store-icon-gap);
   margin-top: var(--space-xl);
-  flex-wrap: wrap; /* Allow wrapping */
+  flex-wrap: wrap;
 }
 .store-icons a {
-    display: inline-block; /* Ensure links behave correctly */
-    line-height: 0; /* Prevent extra space below image */
+    display: inline-block;
+    line-height: 0;
 }
 .store-icon { /* Class for the <img> tag */
   width: var(--store-icon-width);
@@ -480,14 +495,14 @@ nav a.active::before {
 */
 
 /* ==========================================================================
-   Contact Section
+   Contact Section (Index Page Specific)
    ========================================================================== */
 #contact { /* Using ID selector as in HTML */
   text-align: center;
-  margin-bottom: 0;
+  margin-bottom: 0; /* Adjusted as it's before footer include */
   padding: var(--contact-padding-v) var(--layout-padding-h);
   background-color: var(--color-surface-contact);
-  border-radius: 0; /* Full width */
+  border-radius: 0;
   box-shadow: 0 -4px 8px var(--color-shadow-contact);
   position: relative;
   z-index: 1;
@@ -529,11 +544,11 @@ nav a.active::before {
 }
 
 /* ==========================================================================
-   Footer
+   Footer (Shared via Footer Include)
    ========================================================================== */
 footer {
   text-align: center;
-  padding: var(--footer-padding-v) 0; /* Only vertical padding */
+  padding: var(--footer-padding-v) 0;
   background-color: var(--color-surface-footer);
   color: var(--color-text-footer);
   font-size: var(--fs-footer);
@@ -541,7 +556,7 @@ footer {
   z-index: 0;
 }
 footer p {
-    padding-left: var(--layout-padding-h); /* Re-apply horizontal padding */
+    padding-left: var(--layout-padding-h);
     padding-right: var(--layout-padding-h);
 }
 footer a {
@@ -557,7 +572,7 @@ footer a:hover {
 
 
 /* ==========================================================================
-   Artist Catalog Page Specific Styles (Integrated)
+   Artist Catalog Page Specific Styles
    ========================================================================== */
 
 main.catalog-main {
@@ -639,6 +654,43 @@ main.catalog-main .song-list li {
 
 
 /* ==========================================================================
+   NEW STYLES FOR ForArtists / ForVenues PAGES (Placeholder Section)
+   ========================================================================== */
+
+/* Example: Basic styling for content blocks */
+.content-block {
+    background-color: #1a1a1a; /* Use a variable? var(--color-surface-content-block)? */
+    padding: var(--space-lg);
+    border-radius: var(--border-radius-large);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Use shadow variable? */
+    margin-bottom: var(--space-xxxl); /* Use section margin? */
+}
+
+.content-block h2,
+.content-block h3 { /* Example basic heading styling */
+    font-family: var(--font-secondary);
+    font-size: 1.8rem; /* Use variable? */
+    color: var(--color-text-headings);
+    margin-bottom: var(--space-lg);
+}
+
+.content-block h2 { /* Specific style for H2 in these blocks */
+    border-bottom: 2px solid var(--color-accent-secondary);
+    padding-bottom: var(--space-xs);
+    display: inline-block; /* Keep underline contained */
+}
+
+.content-block p {
+    margin-bottom: var(--space-md);
+}
+.content-block p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Add more specific styles for .page-hero-banner, .benefits-grid, etc. here */
+
+
+/* ==========================================================================
    Responsive Design
    ========================================================================== */
 
@@ -647,7 +699,7 @@ main.catalog-main .song-list li {
   /* Allow nav items to wrap */
   nav ul {
     flex-wrap: wrap;
-    gap: var(--nav-gap-tablet); /* Reduce gap */
+    gap: var(--nav-gap-tablet);
     justify-content: flex-end;
   }
   nav li {
@@ -665,6 +717,16 @@ main.catalog-main .song-list li {
     padding-left: var(--layout-padding-h-tablet);
     padding-right: var(--layout-padding-h-tablet);
   }
+  /* Adjust specific container padding */
+   main.page-container {
+     padding-left: var(--layout-padding-h-tablet);
+     padding-right: var(--layout-padding-h-tablet);
+   }
+   main.page-container section {
+     padding-left: 0;
+     padding-right: 0;
+   }
+
   header {
     padding-top: var(--header-padding-v-tablet);
     padding-bottom: var(--header-padding-v-tablet);
@@ -681,18 +743,19 @@ main.catalog-main .song-list li {
   .artists { padding: 0 var(--layout-padding-h-tablet); }
   /* Adjust section bottom margins */
   .hero, .about, .artists { margin-bottom: var(--section-margin-bottom-tablet); }
+  .content-block { margin-bottom: var(--section-margin-bottom-tablet); } /* Adjust content block margin */
+
 
   /* Adjust artist grid columns */
   .artist-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
 
   /* --- Hamburger Menu Activation --- */
   .hamburger {
-    display: block; /* Show hamburger */
-    margin-left: auto; /* ** Added This Line For Right Alignment ** */
+    display: block;
+    margin-left: auto;
   }
 
   nav ul {
-    /* Hide desktop nav, prepare mobile slide-in */
     position: fixed;
     top: 0;
     right: calc(-1 * var(--mobile-nav-width));
@@ -710,10 +773,8 @@ main.catalog-main .song-list li {
     box-shadow: -5px 0 15px rgba(0,0,0,0.3);
     flex-wrap: nowrap;
   }
-  /* Slide nav in when active */
   nav ul.open { right: 0; }
 
-  /* Style mobile nav links */
   nav li { margin-bottom: 0; }
   nav a { display: block; width: 100%; text-align: center;}
   nav a::before { display: none; }
