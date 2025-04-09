@@ -2,7 +2,7 @@
    CSS Variables - Global definitions
    ========================================================================== */
 :root {
-  /* Colors (Based on your provided CSS) */
+  /* Colors */
   --color-background: #121212;
   --color-surface-header: rgba(25, 25, 25, 0.9);
   --color-surface-about: rgba(35, 35, 35, 0.8);
@@ -10,18 +10,18 @@
   --color-surface-contact: rgba(35, 35, 35, 0.8);
   --color-surface-footer: rgba(25, 25, 25, 0.9);
   --color-text-primary: #eee;
-  --color-text-secondary: #bbb; /* Nav links, artist card p */
+  --color-text-secondary: #bbb;
   --color-text-footer: #999;
-  --color-text-headings: #fff; /* Hero H1, Artist Card H3 */
+  --color-text-headings: #fff;
   --color-text-hero-p: #eee;
   --color-text-join-p: #eee;
   --color-text-contact-p: #ccc;
-  --color-accent-primary: #9c27b0; /* Logo title, About/Artists H2, Contact H2, Join gradient, Social hover */
-  --color-accent-secondary: #03a9f4; /* Nav hover gradient, Contact/Footer links */
-  --color-accent-tertiary: #f441a5; /* Nav hover gradient, Contact/Footer link hover */
-  --color-accent-quaternary: #ffeb3b; /* Nav hover gradient */
+  --color-accent-primary: #9c27b0;
+  --color-accent-secondary: #03a9f4;
+  --color-accent-tertiary: #f441a5;
+  --color-accent-quaternary: #ffeb3b;
   --color-gradient-cta: linear-gradient(90deg, var(--color-accent-secondary), var(--color-accent-tertiary));
-  --color-gradient-join-bg: linear-gradient(135deg, var(--color-accent-primary), #673ab7); /* Added missing second color */
+  --color-gradient-join-bg: linear-gradient(135deg, var(--color-accent-primary), #673ab7);
   --color-nav-border-gradient: linear-gradient(90deg, var(--color-accent-secondary), var(--color-accent-tertiary), var(--color-accent-quaternary), var(--color-accent-secondary));
   --color-shadow-header: rgba(0, 0, 0, 0.5);
   --color-shadow-logo: rgba(0, 0, 0, 0.6);
@@ -35,9 +35,9 @@
   --color-shadow-contact: rgba(0, 0, 0, 0.5);
   --color-social-icon: #777;
   --color-hamburger-bg: var(--color-text-primary);
-  --color-mobile-nav-bg: #1a1a1a; /* From previous CSS */
+  --color-mobile-nav-bg: #1a1a1a;
 
-  /* Catalog Specific Colors (Merged from previous step) */
+  /* Catalog colours */
   --color-catalog-border: #444;
   --color-catalog-details-bg: rgba(255, 255, 255, 0.04);
   --color-catalog-details-bg-hover: rgba(255, 255, 255, 0.08);
@@ -46,7 +46,7 @@
   --color-catalog-artist-h3: var(--color-accent-secondary);
   --color-catalog-artist-border: var(--color-accent-secondary);
 
-  /* Fonts (Ensure these are loaded in HTML) */
+  /* Fonts */
   --font-primary: 'Poppins', sans-serif;
   --font-secondary: 'Montserrat', sans-serif;
 
@@ -71,20 +71,20 @@
   --fs-footer: 0.9rem;
 
   /* Spacing */
-  --space-xxs: 0.25rem;  /* 4px */
-  --space-xs: 0.5rem;    /* 8px */
-  --space-sm: 0.75rem;   /* 12px */
-  --space-md: 1rem;      /* 16px */
-  --space-lg: 1.5rem;    /* 24px */
-  --space-xl: 2rem;      /* 32px */
-  --space-xxl: 2.5rem;   /* 40px */
-  --space-xxxl: 3rem;    /* 48px */
-  --space-xxxxl: 4rem;   /* 64px */
+  --space-xxs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-xxl: 2.5rem;
+  --space-xxxl: 3rem;
+  --space-xxxxl: 4rem;
   --layout-padding-h: var(--space-xl);
   --layout-padding-h-tablet: var(--space-md);
   --header-padding-v: var(--space-lg);
   --header-padding-v-tablet: var(--space-md);
-  --hero-padding-v: 6rem; /* Keep specific large value */
+  --hero-padding-v: 6rem;
   --hero-padding-v-mobile: var(--space-xxxxl);
   --about-padding: var(--space-xxxxl);
   --about-padding-tablet: var(--space-xl);
@@ -107,696 +107,331 @@
   --transition-speed-nav-border: 0.4s;
   --border-radius-small: 3px;
   --border-radius-medium: 5px;
-  --border-radius-large: 15px; /* About, Artist Card */
-  --border-radius-round: 50px; /* CTA Button */
-  --border-radius-join-btn: 30px; /* Specific for join button */
+  --border-radius-large: 15px;
+  --border-radius-round: 50px;
+  --border-radius-join-btn: 30px;
   --artist-card-img-height: 250px;
   --store-icon-width: 160px;
-  --mobile-nav-width: 250px; /* From previous CSS */
-  --header-height: auto; /* Can be set to a fixed value if needed */
+  --mobile-nav-width: 250px;
+  --header-height: auto;
 }
 
 /* ==========================================================================
-   Basic Reset & Base Styles
+   Reset & Base
    ========================================================================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: var(--fs-base-root);
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-primary);
-  line-height: 1.6;
-  background-color: var(--color-background);
-  color: var(--color-text-primary);
-  overflow-x: hidden;
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:var(--fs-base-root);scroll-behavior:smooth;}
+body{
+  font-family:var(--font-primary);
+  line-height:1.6;
+  background:var(--color-background);
+  color:var(--color-text-primary);
+  overflow-x:hidden;
 }
 
 /* ==========================================================================
-   Overall Layout
+   Layout containers
    ========================================================================== */
-header, nav, main, section, footer {
-  /* width: 100%; Redundant */
-  padding-left: var(--layout-padding-h);
-  padding-right: var(--layout-padding-h);
+header,nav,main,section,footer{
+  padding-left:var(--layout-padding-h);
+  padding-right:var(--layout-padding-h);
 }
-
-/* Add specific padding for main content area if needed, or use section padding */
-main.page-container {
-    padding-top: var(--space-xl); /* Example top padding */
-    padding-bottom: var(--space-xl); /* Example bottom padding */
-    max-width: 1100px; /* Set max-width for these pages */
-    margin-left: auto;
-    margin-right: auto;
+main.page-container{
+  padding:var(--space-xl) 0;
+  max-width:1100px;
+  margin:auto;
 }
-/* Remove default padding from sections within the container if main has padding */
-main.page-container section {
-    padding-left: 0;
-    padding-right: 0;
-}
+main.page-container section{padding-left:0;padding-right:0;}
 
-
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: var(--header-padding-v);
-  padding-bottom: var(--header-padding-v);
-  background-color: var(--color-surface-header);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 8px var(--color-shadow-header);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  min-height: var(--header-height);
+header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:var(--header-padding-v) 0;
+  background:var(--color-surface-header);
+  backdrop-filter:blur(10px);
+  box-shadow:0 4px 8px var(--color-shadow-header);
+  position:sticky;top:0;z-index:100;
+  min-height:var(--header-height);
 }
 
 /* ==========================================================================
    Logo
    ========================================================================== */
-.logo a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: inherit;
-}
-.logo a img {
-  height: 70px;
-  margin-right: var(--space-md);
-  transition: transform var(--transition-speed) ease;
-}
-.logo a:hover img {
-  transform: scale(1.1);
-}
-.logo a .logo-title {
-  font-family: var(--font-secondary);
-  font-size: var(--fs-logo);
-  color: var(--color-accent-primary);
-  font-weight: 700;
-  text-shadow: 1px 1px 3px var(--color-shadow-logo);
+.logo a{display:flex;align-items:center;text-decoration:none;color:inherit;}
+.logo a img{height:70px;margin-right:var(--space-md);transition:transform var(--transition-speed);}
+.logo a:hover img{transform:scale(1.1);}
+.logo a .logo-title{
+  font-family:var(--font-secondary);font-size:var(--fs-logo);
+  color:var(--color-accent-primary);font-weight:700;
+  text-shadow:1px 1px 3px var(--color-shadow-logo);
 }
 
 /* ==========================================================================
-   Navigation (Desktop)
+   Navigation
    ========================================================================== */
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: var(--nav-gap);
-  margin-left: auto;
-  flex-wrap: nowrap;
+nav ul{
+  list-style:none;display:flex;gap:var(--nav-gap);margin-left:auto;flex-wrap:nowrap;
 }
-nav li {
-  margin-bottom: 0;
+nav a{
+  text-decoration:none;color:var(--color-text-secondary);font-weight:500;
+  transition:all var(--transition-speed);
+  padding:var(--space-xs) var(--space-md);
+  border-radius:var(--border-radius-medium);position:relative;overflow:hidden;
 }
-nav a {
-  text-decoration: none;
-  color: var(--color-text-secondary);
-  font-weight: 500;
-  transition: all var(--transition-speed) ease;
-  padding: var(--space-xs) var(--space-md);
-  border-radius: var(--border-radius-medium);
-  position: relative;
-  overflow: hidden;
+nav a::before{
+  content:'';position:absolute;bottom:0;left:0;width:0;height:2px;
+  background:var(--color-nav-border-gradient);background-size:400%;
+  transition:width var(--transition-speed-nav-border);z-index:-1;
+  animation:glowing-border 8s linear infinite;
 }
-nav a::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--color-nav-border-gradient);
-  background-size: 400%;
-  transition: width var(--transition-speed-nav-border) ease;
-  z-index: -1;
-  animation: glowing-border 8s linear infinite;
-}
-nav a:hover {
-  color: var(--color-text-headings); /* Use headings color for hover */
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-}
-nav a:hover::before {
-  width: 100%;
-}
-/* Active nav link style */
-nav a.active {
-    color: var(--color-text-headings);
-    font-weight: 700;
-}
-nav a.active::before {
-    width: 100%;
+nav a:hover{color:var(--color-text-headings);text-shadow:0 0 5px rgba(255,255,255,.5);}
+nav a:hover::before{width:100%;}
+nav a.active{color:var(--color-text-headings);font-weight:700;}
+nav a.active::before{width:100%;}
+
+@keyframes glowing-border{
+  0%{background-position:0 0;}
+ 50%{background-position:400% 0;}
+100%{background-position:0 0;}
 }
 
-@keyframes glowing-border {
-  0%   { background-position: 0 0; }
-  50%  { background-position: 400% 0; }
-  100% { background-position: 0 0; }
+/* ─── Hamburger ─────────────────────────────────────────────────────────── */
+.hamburger{display:none;cursor:pointer;padding:var(--space-xs);z-index:1001;}
+.hamburger span{display:block;width:24px;height:3px;background:var(--color-hamburger-bg);
+  margin:5px 0;border-radius:var(--border-radius-small);transition:var(--transition-speed);}
+.hamburger.active span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+
+/* ==========================================================================
+   Index‑page hero
+   ========================================================================== */
+.hero{
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding:var(--hero-padding-v) var(--layout-padding-h);
+  background:url('https://images.unsplash.com/photo-1519681393784-d120267933ba') no-repeat center/cover;
+  position:relative;margin-bottom:var(--section-margin-bottom);color:var(--color-text-headings);
+}
+.hero::before{content:'';position:absolute;inset:0;background:var(--color-shadow-hero-text);z-index:1;}
+.hero>*{position:relative;z-index:2;}
+.hero h1{
+  font-size:var(--fs-hero-h1);font-family:var(--font-secondary);
+  margin-bottom:var(--space-lg);line-height:1.2;text-shadow:2px 2px 4px var(--color-shadow-hero-text);
+}
+.hero p{
+  font-size:var(--fs-hero-p);max-width:800px;margin-bottom:var(--space-xxl);
+  text-shadow:1px 1px 3px var(--color-shadow-hero-text);
+}
+.cta-btn{
+  display:inline-block;background:var(--color-gradient-cta);color:var(--color-text-headings);
+  padding:var(--space-md) var(--space-xl);border-radius:var(--border-radius-round);
+  font-weight:700;box-shadow:0 4px 8px var(--color-shadow-cta);transition:all var(--transition-speed);
+  text-decoration:none;
+}
+.cta-btn:hover{transform:translateY(-3px);box-shadow:0 6px 12px var(--color-shadow-cta-hover);filter:brightness(1.1);}
+
+/* ==========================================================================
+   Index – About
+   ========================================================================== */
+.about{
+  background:var(--color-surface-about);backdrop-filter:blur(5px);
+  padding:var(--about-padding);border-radius:var(--border-radius-large);
+  box-shadow:0 4px 10px var(--color-shadow-about);max-width:1200px;margin:0 auto var(--section-margin-bottom);
+}
+.about h2{font-family:var(--font-secondary);font-size:var(--fs-about-h2);margin-bottom:var(--space-lg);color:var(--color-accent-primary);}
+.about p{margin-bottom:var(--space-lg);font-size:var(--fs-about-p);}
+.about p:last-of-type{margin-bottom:0;}
+
+/* ==========================================================================
+   Index – Artists grid
+   ========================================================================== */
+.artists{max-width:1200px;margin:var(--section-margin-bottom) auto;padding:0 var(--layout-padding-h);}
+.artists h2{font-family:var(--font-secondary);font-size:var(--fs-artists-h2);margin-bottom:var(--artists-h2-margin-bottom);text-align:center;color:var(--color-accent-primary);}
+.artist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--artist-grid-gap);}
+.artist-card{
+  background:var(--color-surface-artist-card);border-radius:var(--border-radius-large);
+  box-shadow:0 4px 8px var(--color-shadow-artist-card);
+  overflow:hidden;display:flex;flex-direction:column;transition:transform var(--transition-speed),box-shadow var(--transition-speed);
+}
+.artist-card:hover{transform:scale(1.03);box-shadow:0 6px 15px var(--color-shadow-artist-card-hover);}
+.artist-card img{width:100%;height:var(--artist-card-img-height);object-fit:cover;}
+.artist-card .artist-info{padding:var(--artist-card-padding);display:flex;flex-direction:column;flex-grow:1;}
+.artist-card h3{font-size:var(--fs-artist-card-h3);margin-bottom:var(--space-sm);font-family:var(--font-secondary);}
+.artist-card p{font-size:var(--fs-artist-card-p);margin-bottom:var(--space-md);color:var(--color-text-secondary);flex-grow:1;}
+.artist-card a{
+  display:inline-block;background:var(--color-gradient-cta);color:var(--color-text-headings);
+  padding:var(--space-xs) var(--space-md);border-radius:var(--border-radius-round);
+  font-weight:600;transition:filter var(--transition-speed);text-decoration:none;align-self:flex-start;
+}
+.artist-card a:hover{filter:brightness(1.2);}
+
+/* ==========================================================================
+   Join, Contact, Footer (shared)
+   ========================================================================== */
+.join{
+  padding:var(--join-padding-v) var(--layout-padding-h);text-align:center;
+  background:var(--color-gradient-join-bg);box-shadow:0 4px 8px var(--color-shadow-join);
+}
+.join h2{font-family:var(--font-secondary);font-size:var(--fs-join-h2);margin-bottom:var(--space-lg);}
+.join p{font-size:var(--fs-join-p);margin-bottom:var(--space-lg);}
+.store-icons{display:flex;justify-content:center;gap:var(--store-icon-gap);margin-top:var(--space-xl);flex-wrap:wrap;}
+.store-icons a{line-height:0;}
+.store-icon{width:var(--store-icon-width);transition:transform var(--transition-speed);}
+.store-icon:hover{transform:scale(1.05);}
+
+#contact{
+  text-align:center;padding:var(--contact-padding-v) var(--layout-padding-h);
+  background:var(--color-surface-contact);box-shadow:0 -4px 8px var(--color-shadow-contact);
+}
+#contact h2{font-family:var(--font-secondary);font-size:var(--fs-contact-h2);margin-bottom:var(--space-md);color:var(--color-accent-primary);}
+#contact p{margin-bottom:var(--space-sm);color:var(--color-text-contact-p);}
+#contact a:not(.social-icons a){color:var(--color-accent-secondary);font-weight:600;text-decoration:none;transition:color var(--transition-speed);}
+#contact a:not(.social-icons a):hover{text-decoration:underline;color:var(--color-accent-tertiary);}
+.social-icons{margin-top:var(--space-lg);}
+.social-icons a{display:inline-block;margin:0 var(--social-icon-margin-h);font-size:var(--fs-social-icon);color:var(--color-social-icon);transition:color var(--transition-speed),transform var(--transition-speed);}
+.social-icons a:hover{color:var(--color-accent-primary);transform:scale(1.2);}
+
+footer{text-align:center;padding:var(--footer-padding-v) 0;background:var(--color-surface-footer);color:var(--color-text-footer);font-size:var(--fs-footer);}
+footer p{padding:0 var(--layout-padding-h);}
+footer a{color:var(--color-accent-secondary);font-weight:600;text-decoration:none;transition:color var(--transition-speed);}
+footer a:hover{text-decoration:underline;color:var(--color-accent-tertiary);}
+
+/* ==========================================================================
+   Artist Catalog page
+   ========================================================================== */
+main.catalog-main{max-width:900px;margin:var(--section-margin-bottom) auto;padding:0 var(--space-lg);}
+main.catalog-main h1{text-align:center;margin-bottom:var(--space-xxl);font-size:clamp(1.75rem,3vw+1rem,2.5rem);color:var(--color-accent-primary);font-family:var(--font-secondary);}
+main.catalog-main details{margin-bottom:1.75rem;border:1px solid var(--color-catalog-border);border-radius:var(--border-radius-large);padding:var(--space-md) 1.25rem;background:var(--color-catalog-details-bg);transition:background-color var(--transition-speed);}
+main.catalog-main details:hover{background:var(--color-catalog-details-bg-hover);}
+main.catalog-main summary{font-size:clamp(1.1rem,1vw+0.9rem,1.4rem);font-weight:600;cursor:pointer;list-style:none;position:relative;padding-left:1.3rem;color:var(--color-text-primary);}
+main.catalog-main summary::before{content:'▸';position:absolute;left:0;top:0;line-height:inherit;transition:transform var(--transition-speed);color:var(--color-catalog-arrow);}
+main.catalog-main details[open]>summary::before{transform:rotate(90deg);}
+main.catalog-main details[open]>summary{margin-bottom:var(--space-md);}
+main.catalog-main .artist{margin-left:var(--space-lg);margin-top:var(--space-md);padding-left:var(--space-md);border-left:2px solid var(--color-catalog-artist-border);}
+main.catalog-main details[open]>.artist:first-of-type{margin-top:0;}
+main.catalog-main .artist h3{font-size:clamp(1rem,1vw+0.8rem,1.25rem);margin-bottom:var(--space-xs);color:var(--color-catalog-artist-h3);font-family:var(--font-secondary);}
+main.catalog-main .song-list{margin-left:1.25rem;list-style:disc;font-size:clamp(0.95rem,0.9vw+0.75rem,1.1rem);color:var(--color-catalog-text-muted);padding-left:var(--space-md);}
+main.catalog-main .song-list li{margin-bottom:var(--space-xs);}
+
+/* ==========================================================================
+   COMPLETE ForArtists / ForVenues STYLES
+   ========================================================================== */
+.page-hero-banner{
+  height:350px;background-size:cover;background-position:center;position:relative;
+  border-radius:var(--border-radius-large);margin-bottom:var(--space-xxxl);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.hero-banner-overlay{position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.6));z-index:1;}
+.hero-banner-text{
+  position:relative;z-index:2;font-family:var(--font-secondary);
+  font-size:clamp(1.5rem,2vw+1rem,2.5rem);font-weight:600;text-align:center;
+  padding:var(--space-lg) var(--space-xxl);background:rgba(0,0,0,.7);
+  border-radius:var(--border-radius-medium);box-shadow:0 4px 10px rgba(0,0,0,.5);
+  color:var(--color-text-headings);
+}
+
+/* Generic content block */
+.content-block{
+  background:#1a1a1a;padding:var(--space-lg);border-radius:var(--border-radius-large);
+  box-shadow:0 4px 15px rgba(0,0,0,.3);margin-bottom:var(--space-xxxl);
+}
+.content-block h2{font-family:var(--font-secondary);font-size:1.8rem;margin-bottom:var(--space-lg);color:var(--color-text-headings);border-bottom:2px solid var(--color-accent-secondary);padding-bottom:var(--space-xs);display:inline-block;}
+.content-block h3{font-family:var(--font-secondary);font-size:1.3rem;color:var(--color-accent-secondary);margin-bottom:var(--space-md);}
+.content-block p{margin-bottom:var(--space-md);}
+.content-block p:last-of-type{margin-bottom:0;}
+
+/* Lists */
+.styled-list{list-style:none;padding-left:0;}
+.styled-list.bullet-list li,
+.styled-list.checkmark-list li{position:relative;padding-left:1.5rem;margin-bottom:.8rem;}
+.styled-list.bullet-list li::before{content:"◆";position:absolute;left:0;top:1px;color:var(--color-accent-secondary);}
+.styled-list.checkmark-list li::before{content:"✔";position:absolute;left:0;top:2px;color:#4caf50;}
+
+/* Benefits grid */
+.benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-lg);margin-top:var(--space-lg);}
+.benefit-card{
+  background:#252525;border:1px solid #333;border-radius:10px;
+  box-shadow:0 3px 8px rgba(0,0,0,.4);padding:var(--space-lg);
+  display:flex;flex-direction:column;text-align:center;
+}
+.benefit-card h3{color:var(--color-accent-secondary);margin-bottom:var(--space-md);font-size:1.3rem;}
+.benefit-card ul{margin-top:var(--space-md);text-align:left;flex-grow:1;}
+.benefit-card p{text-align:left;}
+.card-disclaimer,.disclaimer-text{font-size:.9em;opacity:.8;margin-top:var(--space-md);}
+
+/* Venue spotlight */
+.venue-spotlight{margin-top:var(--space-xxl);text-align:center;}
+.spotlight-logo-container{background:#2b2b2b;display:inline-block;padding:var(--space-md);border-radius:8px;margin-bottom:var(--space-md);}
+.spotlight-logo{width:180px;height:auto;display:block;}
+.spotlight-description{max-width:700px;margin:0 auto;text-align:left;}
+.spotlight-description strong{display:block;text-align:center;margin-bottom:.5rem;font-size:1.1em;}
+.venue-image-gallery{display:flex;flex-wrap:wrap;gap:var(--space-lg);justify-content:center;margin-top:var(--space-lg);}
+.venue-gallery-image{
+  width:clamp(180px,18vw,220px);height:140px;object-fit:cover;border-radius:8px;
+  border:1px solid #444;box-shadow:0 3px 6px rgba(0,0,0,.5);
+  transition:transform var(--transition-speed),box-shadow var(--transition-speed);
+}
+.venue-gallery-image:hover{transform:scale(1.05);box-shadow:0 6px 12px rgba(0,0,0,.6);}
+
+/* Featured artists gallery */
+.featured-artists-gallery{display:flex;flex-wrap:wrap;gap:var(--space-lg);justify-content:center;margin-top:var(--space-lg);}
+.artist-thumbnail{
+  width:clamp(180px,18vw,220px);aspect-ratio:3/2;object-fit:cover;border-radius:8px;
+  border:2px solid transparent;box-shadow:0 3px 6px rgba(0,0,0,.5);
+  transition:transform var(--transition-speed),box-shadow var(--transition-speed),border-color var(--transition-speed);
+}
+.artist-thumbnail:hover{transform:scale(1.05);box-shadow:0 6px 12px rgba(0,0,0,.6);border-color:var(--color-accent-secondary);}
+
+/* Invitation code pill */
+.invitation-code{
+  background:rgba(255,255,255,.1);padding:var(--space-sm) var(--space-md);
+  border-radius:6px;display:inline-block;margin-top:var(--space-md);
+  font-weight:500;border:1px solid rgba(255,255,255,.6);color:var(--color-text-primary);
 }
 
 /* ==========================================================================
-   Hamburger Menu Icon
+   Responsive tweaks
    ========================================================================== */
-.hamburger {
- /* margin-left: var(--space-sm); Removed base margin */
-  cursor: pointer;
-  display: none; /* Hidden on desktop */
-  padding: var(--space-xs);
-  z-index: 1001;
+@media(max-width:900px){
+  nav ul{flex-wrap:wrap;gap:var(--nav-gap-tablet);justify-content:flex-end;}
+  nav li{margin-bottom:var(--space-xs);}
 }
-.hamburger span {
-  display: block;
-  width: 24px;
-  height: 3px;
-  background: var(--color-hamburger-bg);
-  margin: 5px 0;
-  border-radius: var(--border-radius-small);
-  transition: var(--transition-speed);
-}
-/* Active state (X shape) */
-.hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-.hamburger.active span:nth-child(2) { opacity: 0; }
-.hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+@media(max-width:768px){
+  html{font-size:105%;}
+  header,nav,main,section,footer{padding-left:var(--layout-padding-h-tablet);padding-right:var(--layout-padding-h-tablet);}
+  main.page-container{padding-left:var(--layout-padding-h-tablet);padding-right:var(--layout-padding-h-tablet);}
+  header{padding:var(--header-padding-v-tablet) 0;}
+  .logo a img{height:50px;}
+  .logo a .logo-title{font-size:var(--fs-logo-tablet);}
+  .hero h1{font-size:var(--fs-hero-h1-tablet);}
+  .about{padding:var(--about-padding-tablet);}
+  .artists{padding:0 var(--layout-padding-h-tablet);}
+  .hero,.about,.artists{margin-bottom:var(--section-margin-bottom-tablet);}
+  .content-block{margin-bottom:var(--section-margin-bottom-tablet);}
+  .artist-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));}
 
-
-/* ==========================================================================
-   Hero Section (Index Page Specific)
-   ========================================================================== */
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: var(--hero-padding-v) var(--layout-padding-h);
-  background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba') no-repeat center/cover;
-  color: var(--color-text-headings);
-  position: relative;
-  overflow: hidden;
-  margin-bottom: var(--section-margin-bottom);
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--color-shadow-hero-text);
-  z-index: 1;
-}
-.hero > * {
-  position: relative;
-  z-index: 2;
-}
-.hero h1 {
-  font-size: var(--fs-hero-h1);
-  font-family: var(--font-secondary);
-  margin-bottom: var(--space-lg);
-  text-shadow: 2px 2px 4px var(--color-shadow-hero-text);
-  line-height: 1.2;
-  color: var(--color-text-headings);
-}
-.hero p {
-  font-size: var(--fs-hero-p);
-  max-width: 800px;
-  margin-bottom: var(--space-xxl);
-  text-shadow: 1px 1px 3px var(--color-shadow-hero-text);
-  color: var(--color-text-hero-p);
-}
-.hero .cta-btn {
-  display: inline-block;
-  background: var(--color-gradient-cta);
-  color: var(--color-text-headings);
-  padding: var(--space-md) var(--space-xl);
-  border-radius: var(--border-radius-round);
-  text-decoration: none;
-  font-weight: bold;
-  transition: all var(--transition-speed) ease;
-  border: none;
-  box-shadow: 0 4px 8px var(--color-shadow-cta);
-  cursor: pointer;
-}
-.hero .cta-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px var(--color-shadow-cta-hover);
-  filter: brightness(1.1);
-}
-
-/* ==========================================================================
-   About Section (Index Page Specific)
-   ========================================================================== */
-.about {
-  background-color: var(--color-surface-about);
-  backdrop-filter: blur(5px);
-  padding: var(--about-padding);
-  border-radius: var(--border-radius-large);
-  box-shadow: 0 4px 10px var(--color-shadow-about);
-  max-width: 1200px;
-  margin: 0 auto var(--section-margin-bottom);
-}
-.about h2 {
-  font-family: var(--font-secondary);
-  font-size: var(--fs-about-h2);
-  margin-bottom: var(--space-lg);
-  color: var(--color-accent-primary);
-}
-.about p {
-  margin-bottom: var(--space-lg);
-  font-size: var(--fs-about-p);
-  color: var(--color-text-primary);
-}
-.about p:last-of-type {
-  margin-bottom: 0;
-}
-
-/* ==========================================================================
-   Artists Section (Index Page Specific)
-   ========================================================================== */
-.artists {
-  max-width: 1200px;
-  margin: var(--section-margin-bottom) auto;
-  padding: 0 var(--layout-padding-h);
-}
-.artists h2 {
-  font-family: var(--font-secondary);
-  font-size: var(--fs-artists-h2);
-  margin-bottom: var(--artists-h2-margin-bottom);
-  text-align: center;
-  color: var(--color-accent-primary);
-}
-.artist-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: var(--artist-grid-gap);
-}
-.artist-card {
-  background-color: var(--color-surface-artist-card);
-  border-radius: var(--border-radius-large);
-  box-shadow: 0 4px 8px var(--color-shadow-artist-card);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-}
-.artist-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 15px var(--color-shadow-artist-card-hover);
-}
-.artist-card img {
-  width: 100%;
-  height: var(--artist-card-img-height);
-  object-fit: cover;
-  display: block;
-}
-.artist-card .artist-info {
-  padding: var(--artist-card-padding);
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-.artist-card h3 {
-  font-size: var(--fs-artist-card-h3);
-  margin-bottom: var(--space-sm);
-  font-family: var(--font-secondary);
-  color: var(--color-text-headings);
-}
-.artist-card p {
-  font-size: var(--fs-artist-card-p);
-  margin-bottom: var(--space-md);
-  color: var(--color-text-secondary);
-  flex-grow: 1;
-}
-.artist-card a { /* Link styled as button */
-  display: inline-block;
-  text-decoration: none;
-  color: var(--color-text-headings);
-  background: var(--color-gradient-cta);
-  font-weight: 600;
-  margin-top: auto;
-  padding: var(--space-xs) var(--space-md);
-  border-radius: var(--border-radius-round);
-  transition: filter var(--transition-speed) ease;
-  align-self: flex-start;
-}
-.artist-card a:hover {
-  filter: brightness(1.2);
-  text-decoration: none;
-}
-
-/* ==========================================================================
-   Join Section (Shared via Footer Include)
-   ========================================================================== */
-.join {
-  padding: var(--join-padding-v) var(--layout-padding-h);
-  text-align: center;
-  background: var(--color-gradient-join-bg);
-  border-radius: 0;
-  margin-bottom: 0;
-  box-shadow: 0 4px 8px var(--color-shadow-join);
-}
-.join h2 {
-  font-size: var(--fs-join-h2);
-  margin-bottom: var(--space-lg);
-  font-family: var(--font-secondary);
-  color: var(--color-text-headings);
-}
-.join p {
-  margin-bottom: var(--space-lg);
-  font-size: var(--fs-join-p);
-  color: var(--color-text-join-p);
-}
-/* Store Icons Styling */
-.store-icons {
-  display: flex;
-  justify-content: center;
-  gap: var(--store-icon-gap);
-  margin-top: var(--space-xl);
-  flex-wrap: wrap;
-}
-.store-icons a {
-    display: inline-block;
-    line-height: 0;
-}
-.store-icon { /* Class for the <img> tag */
-  width: var(--store-icon-width);
-  height: auto;
-  transition: transform var(--transition-speed) ease;
-}
-.store-icon:hover {
-    transform: scale(1.05);
-}
-
-/* Join Button - Commented out */
-/*
-.join-btn { ... }
-*/
-
-/* ==========================================================================
-   Contact Section (Index Page Specific)
-   ========================================================================== */
-#contact { /* Using ID selector as in HTML */
-  text-align: center;
-  margin-bottom: 0; /* Adjusted as it's before footer include */
-  padding: var(--contact-padding-v) var(--layout-padding-h);
-  background-color: var(--color-surface-contact);
-  border-radius: 0;
-  box-shadow: 0 -4px 8px var(--color-shadow-contact);
-  position: relative;
-  z-index: 1;
-}
-#contact h2 {
-  font-family: var(--font-secondary);
-  font-size: var(--fs-contact-h2);
-  margin-bottom: var(--space-md);
-  color: var(--color-accent-primary);
-}
-#contact p {
-  margin-bottom: var(--space-sm);
-  color: var(--color-text-contact-p);
-}
-#contact a:not(.social-icons a) { /* Target text links */
-  color: var(--color-accent-secondary);
-  text-decoration: none;
-  transition: color var(--transition-speed);
-  font-weight: 600;
-}
-#contact a:not(.social-icons a):hover {
-  text-decoration: underline;
-  color: var(--color-accent-tertiary);
-}
-#contact .social-icons {
-  margin-top: var(--space-lg);
-}
-.social-icons a { /* Target social icon links */
-  display: inline-block;
-  margin: 0 var(--social-icon-margin-h);
-  font-size: var(--fs-social-icon);
-  color: var(--color-social-icon);
-  transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
-  text-decoration: none;
-}
-.social-icons a:hover {
-  color: var(--color-accent-primary);
-  transform: scale(1.2);
-}
-
-/* ==========================================================================
-   Footer (Shared via Footer Include)
-   ========================================================================== */
-footer {
-  text-align: center;
-  padding: var(--footer-padding-v) 0;
-  background-color: var(--color-surface-footer);
-  color: var(--color-text-footer);
-  font-size: var(--fs-footer);
-  position: relative;
-  z-index: 0;
-}
-footer p {
-    padding-left: var(--layout-padding-h);
-    padding-right: var(--layout-padding-h);
-}
-footer a {
-  color: var(--color-accent-secondary);
-  text-decoration: none;
-  transition: color var(--transition-speed);
-  font-weight: 600;
-}
-footer a:hover {
-  text-decoration: underline;
-  color: var(--color-accent-tertiary);
-}
-
-
-/* ==========================================================================
-   Artist Catalog Page Specific Styles
-   ========================================================================== */
-
-main.catalog-main {
-  max-width: 900px;
-  margin: var(--section-margin-bottom) auto;
-  padding-left: var(--space-lg);
-  padding-right: var(--space-lg);
-  font-family: var(--font-primary);
-  color: var(--color-text-primary);
-}
-main.catalog-main h1 {
-  text-align: center;
-  margin-bottom: var(--space-xxl);
-  font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
-  color: var(--color-accent-primary);
-  font-family: var(--font-secondary);
-}
-main.catalog-main details {
-  margin-bottom: 1.75rem; /* Specific value */
-  border: 1px solid var(--color-catalog-border);
-  border-radius: var(--border-radius-large);
-  padding: var(--space-md) 1.25rem; /* Specific value */
-  background: var(--color-catalog-details-bg);
-  transition: background-color var(--transition-speed) ease;
-}
-main.catalog-main details:hover {
-    background: var(--color-catalog-details-bg-hover);
-}
-main.catalog-main summary {
-  font-size: clamp(1.1rem, 1vw + 0.9rem, 1.4rem);
-  font-weight: 600;
-  cursor: pointer;
-  list-style: none;
-  position: relative;
-  padding-left: 1.3rem; /* Specific value */
-  color: var(--color-text-primary);
-}
-main.catalog-main summary::before {
-  content: '▸';
-  position: absolute;
-  left: 0;
-  top: 0;
-  line-height: inherit;
-  transition: transform var(--transition-speed) ease-in-out;
-  color: var(--color-catalog-arrow);
-}
-main.catalog-main details[open] > summary::before {
-  transform: rotate(90deg);
-}
-main.catalog-main details[open] > summary {
-    margin-bottom: var(--space-md);
-}
-main.catalog-main .artist {
-  margin-left: var(--space-lg);
-  margin-top: var(--space-md);
-  padding-left: var(--space-md);
-  border-left: 2px solid var(--color-catalog-artist-border);
-}
-main.catalog-main details[open] > .artist:first-of-type {
-    margin-top: 0;
-}
-main.catalog-main .artist h3 {
-  font-size: clamp(1rem, 1vw + 0.8rem, 1.25rem);
-  margin-bottom: var(--space-xs);
-  color: var(--color-catalog-artist-h3);
-  font-weight: 500;
-  font-family: var(--font-secondary);
-}
-main.catalog-main .song-list {
-  margin-left: 1.25rem; /* Specific value */
-  list-style: disc;
-  font-size: clamp(0.95rem, 0.9vw + 0.75rem, 1.1rem);
-  color: var(--color-catalog-text-muted);
-  padding-left: var(--space-md);
-}
-main.catalog-main .song-list li {
-    margin-bottom: var(--space-xs);
-}
-
-
-/* ==========================================================================
-   NEW STYLES FOR ForArtists / ForVenues PAGES (Placeholder Section)
-   ========================================================================== */
-
-/* Example: Basic styling for content blocks */
-.content-block {
-    background-color: #1a1a1a; /* Use a variable? var(--color-surface-content-block)? */
-    padding: var(--space-lg);
-    border-radius: var(--border-radius-large);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Use shadow variable? */
-    margin-bottom: var(--space-xxxl); /* Use section margin? */
-}
-
-.content-block h2,
-.content-block h3 { /* Example basic heading styling */
-    font-family: var(--font-secondary);
-    font-size: 1.8rem; /* Use variable? */
-    color: var(--color-text-headings);
-    margin-bottom: var(--space-lg);
-}
-
-.content-block h2 { /* Specific style for H2 in these blocks */
-    border-bottom: 2px solid var(--color-accent-secondary);
-    padding-bottom: var(--space-xs);
-    display: inline-block; /* Keep underline contained */
-}
-
-.content-block p {
-    margin-bottom: var(--space-md);
-}
-.content-block p:last-of-type {
-    margin-bottom: 0;
-}
-
-/* Add more specific styles for .page-hero-banner, .benefits-grid, etc. here */
-
-
-/* ==========================================================================
-   Responsive Design
-   ========================================================================== */
-
-/* ~~~~~~ Medium Screens / Small Laptops ~~~~~~ */
-@media (max-width: 900px) {
-  /* Allow nav items to wrap */
-  nav ul {
-    flex-wrap: wrap;
-    gap: var(--nav-gap-tablet);
-    justify-content: flex-end;
+  /* Hamburger activation */
+  .hamburger{display:block;margin-left:auto;}
+  nav ul{
+    position:fixed;top:0;right:calc(-1*var(--mobile-nav-width));height:100vh;width:var(--mobile-nav-width);
+    flex-direction:column;gap:var(--space-lg);padding:var(--space-xxxxl) var(--space-xl) var(--space-xl);
+    padding-top:calc(var(--header-height,70px)+var(--space-xl));
+    background:var(--color-mobile-nav-bg);transition:right var(--transition-speed);z-index:1000;
+    box-shadow:-5px 0 15px rgba(0,0,0,.3);flex-wrap:nowrap;
   }
-  nav li {
-    margin-bottom: var(--space-xs);
-  }
+  nav ul.open{right:0;}
+  nav a{display:block;width:100%;text-align:center;}
+  nav a::before{display:none;}
+  nav a:hover{background:rgba(255,255,255,.1);}
+  .page-hero-banner{height:300px;}
 }
-
-/* ~~~~~~ Tablets / Large Phones ~~~~~~ */
-@media (max-width: 768px) {
-  /* Adjust base text size */
-  html { font-size: 105%; }
-
-  /* Reduce layout padding */
-  header, nav, main, section, footer {
-    padding-left: var(--layout-padding-h-tablet);
-    padding-right: var(--layout-padding-h-tablet);
-  }
-  /* Adjust specific container padding */
-   main.page-container {
-     padding-left: var(--layout-padding-h-tablet);
-     padding-right: var(--layout-padding-h-tablet);
-   }
-   main.page-container section {
-     padding-left: 0;
-     padding-right: 0;
-   }
-
-  header {
-    padding-top: var(--header-padding-v-tablet);
-    padding-bottom: var(--header-padding-v-tablet);
-  }
-  /* Adjust logo size */
-  .logo a img { height: 50px; }
-  .logo a .logo-title { font-size: var(--fs-logo-tablet); }
-
-  /* Adjust hero text size */
-  .hero h1 { font-size: var(--fs-hero-h1-tablet); }
-
-  /* Adjust section padding */
-  .about { padding: var(--about-padding-tablet); }
-  .artists { padding: 0 var(--layout-padding-h-tablet); }
-  /* Adjust section bottom margins */
-  .hero, .about, .artists { margin-bottom: var(--section-margin-bottom-tablet); }
-  .content-block { margin-bottom: var(--section-margin-bottom-tablet); } /* Adjust content block margin */
-
-
-  /* Adjust artist grid columns */
-  .artist-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
-
-  /* --- Hamburger Menu Activation --- */
-  .hamburger {
-    display: block;
-    margin-left: auto;
-  }
-
-  nav ul {
-    position: fixed;
-    top: 0;
-    right: calc(-1 * var(--mobile-nav-width));
-    height: 100vh;
-    width: var(--mobile-nav-width);
-    flex-direction: column;
-    gap: var(--space-lg);
-    padding: var(--space-xxxxl) var(--space-xl) var(--space-xl);
-    padding-top: calc(var(--header-height, 70px) + var(--space-xl));
-    background: var(--color-mobile-nav-bg);
-    transition: right var(--transition-speed) ease;
-    z-index: 1000;
-    justify-content: flex-start;
-    margin-left: 0;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.3);
-    flex-wrap: nowrap;
-  }
-  nav ul.open { right: 0; }
-
-  nav li { margin-bottom: 0; }
-  nav a { display: block; width: 100%; text-align: center;}
-  nav a::before { display: none; }
-  nav a:hover { background: rgba(255, 255, 255, 0.1); }
-}
-
-/* ~~~~~~ Small Phones ~~~~~~ */
-@media (max-width: 480px) {
-  html { font-size: 112%; }
-
-  /* Further reduce logo size */
-  .logo a img { height: 40px; margin-right: var(--space-xs); }
-  .logo a .logo-title { font-size: var(--fs-logo-mobile); }
-
-  /* Adjust Hero */
-  .hero { padding: var(--hero-padding-v-mobile) var(--layout-padding-h-tablet); }
-  .hero h1 { font-size: var(--fs-hero-h1-mobile); }
-
-  /* Single column artist grid */
-  .artist-grid { grid-template-columns: 1fr; }
-
-  /* Stack store icons */
-  .store-icons { flex-direction: column; align-items: center; }
-
+@media(max-width:480px){
+  html{font-size:112%;}
+  .logo a img{height:40px;margin-right:var(--space-xs);}
+  .logo a .logo-title{font-size:var(--fs-logo-mobile);}
+  .hero{padding:var(--hero-padding-v-mobile) var(--layout-padding-h-tablet);}
+  .hero h1{font-size:var(--fs-hero-h1-mobile);}
+  .artist-grid{grid-template-columns:1fr;}
+  .store-icons{flex-direction:column;align-items:center;}
+  .page-hero-banner{height:250px;}
+  .hero-banner-text{font-size:clamp(1.2rem,4vw,1.6rem);}
 }
