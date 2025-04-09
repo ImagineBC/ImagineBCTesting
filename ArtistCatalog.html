@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artist Catalog - B4Famous</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  </head>
+<body>
+
+  <header>
+    <div class="logo">
+      <a href="https://www.b4famous.com/">
+        <img src="https://imaginebc.net/wp-content/uploads/2025/02/B4Famous-Logo.png" alt="B4Famous Logo">
+        <span class="logo-title">B4Famous</span>
+      </a>
+    </div>
+
+    <div class="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#join">Join</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="ForVenues.html">For Venues</a></li>
+        <li><a href="ForArtists.html">For Artists</a></li>
+        <li><a href="ArtistCatalog.html" class="active">Catalog</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="catalog-main">
+    <h1>Artist Catalog</h1>
+
+    <details open>
+      <summary>Pop</summary>
+      <div class="artist">
+        <h3>Artist Name 1</h3>
+        <ul class="song-list">
+          <li>Song Title 1</li>
+          <li>Song Title 2</li>
+        </ul>
+      </div>
+      <div class="artist">
+        <h3>Artist Name 2</h3>
+        <ul class="song-list">
+          <li>Song Title 1</li>
+          <li>Song Title 2</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Rock</summary>
+      <div class="artist">
+        <h3>Artist Name 3</h3>
+        <ul class="song-list">
+          <li>Song Title 3</li>
+          <li>Song Title 4</li>
+        </ul>
+      </div>
+      <div class="artist">
+        <h3>Artist Name 4</h3>
+        <ul class="song-list">
+          <li>Song Title 5</li>
+          <li>Song Title 6</li>
+        </ul>
+      </div>
+    </details>
+
+    </main>
+
+  <footer>
+    <p>&copy; <span id="current-year">2025</span> B4Famous — Powered by ImagineBC</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
