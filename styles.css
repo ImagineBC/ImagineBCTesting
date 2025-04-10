@@ -313,6 +313,13 @@ main.catalog-main .song-list li{margin-bottom:var(--space-xs);}
   background:#1a1a1a;padding:var(--space-xl); /* wider padding */
   border-radius:var(--border-radius-large);box-shadow:0 4px 15px rgba(0,0,0,.3);
   margin-bottom:var(--space-xxxl);
+   /* -------------------------------------------------------------------------
+   Extra horizontal breathing room inside every .content-block
+   ------------------------------------------------------------------------- */
+  /* keep the top/bottom we already set, but force bigger L/R padding */
+  padding-left:var(--space-xxl) !important;   /*  2.5 rem  = 40 px  */
+  padding-right:var(--space-xxl) !important;
+}
 }
 .content-block h2{font-family:var(--font-secondary);font-size:1.8rem;margin-bottom:var(--space-lg);color:var(--color-text-headings);border-bottom:2px solid var(--color-accent-secondary);padding-bottom:var(--space-xs);display:inline-block;}
 .content-block h3{font-family:var(--font-secondary);font-size:1.3rem;color:var(--color-accent-secondary);margin-bottom:var(--space-md);}
